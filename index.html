@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Northline Market</title>
+    <link rel="stylesheet" href="/styles.css" />
+  </head>
+  <body>
+    <header class="site-header">
+      <a class="brand" href="#/">Northline Market</a>
+      <nav class="nav-actions" aria-label="Primary navigation">
+        <a href="#/">Shop</a>
+        <button class="account-button" id="accountToggle" type="button">Sign in</button>
+        <button class="cart-button" id="cartToggle" type="button" aria-label="Open cart">
+          Cart <span id="cartCount">0</span>
+        </button>
+      </nav>
+    </header>
+
+    <main>
+      <section class="hero">
+        <div>
+          <p class="eyebrow">Curated daily goods</p>
+          <h1>Practical pieces for home, work, and weekends.</h1>
+        </div>
+        <div class="hero-panel">
+          <span>Free shipping over $75</span>
+          <strong id="heroTotal">$0.00 in cart</strong>
+        </div>
+      </section>
+
+      <section class="toolbar" aria-label="Product controls">
+        <label class="search-field">
+          <span>Search products</span>
+          <input id="searchInput" type="search" placeholder="Search by name or category" />
+        </label>
+        <label class="select-field">
+          <span>Category</span>
+          <select id="categorySelect">
+            <option>All</option>
+          </select>
+        </label>
+      </section>
+
+      <section id="appView" class="content-view" aria-live="polite"></section>
+    </main>
+
+    <aside class="cart-drawer" id="cartDrawer" aria-label="Shopping cart" aria-hidden="true">
+      <div class="cart-header">
+        <div>
+          <p class="eyebrow">Your cart</p>
+          <h2>Order summary</h2>
+        </div>
+        <button class="icon-button" id="cartClose" type="button" aria-label="Close cart">x</button>
+      </div>
+      <div id="cartItems" class="cart-items"></div>
+      <div class="totals">
+        <div><span>Subtotal</span><strong id="subtotal">$0.00</strong></div>
+        <div><span>Shipping</span><strong id="shipping">$0.00</strong></div>
+        <div><span>Estimated tax</span><strong id="tax">$0.00</strong></div>
+        <div class="grand-total"><span>Total</span><strong id="total">$0.00</strong></div>
+      </div>
+      <form id="checkoutForm" class="checkout-form">
+        <h3>Checkout</h3>
+        <p id="checkoutNotice" class="checkout-notice">Sign in before placing your order.</p>
+        <input name="name" placeholder="Full name" required />
+        <input name="email" type="email" placeholder="Email address" required />
+        <textarea name="address" placeholder="Shipping address" required></textarea>
+        <button class="primary-button" type="submit">Place order</button>
+      </form>
+      <p id="orderMessage" class="order-message" role="status"></p>
+    </aside>
+    <section class="auth-modal" id="authModal" aria-label="Account" aria-hidden="true">
+      <div class="auth-card">
+        <button class="icon-button auth-close" id="authClose" type="button" aria-label="Close account panel">x</button>
+        <p class="eyebrow">Account</p>
+        <h2 id="authTitle">Sign in</h2>
+        <form id="authForm" class="auth-form">
+          <input name="name" id="authName" placeholder="Full name" />
+          <input name="email" type="email" placeholder="Email address" required />
+          <input name="password" type="password" placeholder="Password" minlength="6" required />
+          <button class="primary-button" id="authSubmit" type="submit">Sign in</button>
+        </form>
+        <button class="text-button" id="authModeToggle" type="button">Create an account</button>
+        <button class="text-button danger-text" id="logoutButton" type="button" hidden>Log out</button>
+        <p id="authMessage" class="order-message" role="status"></p>
+      </div>
+    </section>
+    <div class="overlay" id="overlay"></div>
+
+    <script src="/app.js"></script>
+  </body>
+</html>
